@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import UserCard from "../components/UserCard.jsx";
 import React from "react";
 export default function Home() {
