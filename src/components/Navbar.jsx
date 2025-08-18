@@ -4,12 +4,9 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
-
   useEffect(() => {
-    // Trigger fade-in when component mounts
     setFadeIn(true);
   }, []);
-
   return (
     <nav
       className={`bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 shadow-lg transition-opacity duration-700 ${
@@ -18,12 +15,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
           <Link to="/" className="text-white text-2xl font-bold">
             SimplerTechnology
           </Link>
-
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {["Home", "About", "Contact"].map((item) => (
               <NavLink
@@ -40,8 +34,6 @@ const Navbar = () => {
               </NavLink>
             ))}
           </div>
-
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -52,8 +44,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 px-4 pb-3 space-y-2">
           {["Home", "About", "Contact"].map((item) => (
