@@ -1,8 +1,6 @@
-// src/pages/Signup.jsx
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 export default function Signup() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -10,11 +8,9 @@ export default function Signup() {
     password: "",
   });
   const [errors, setErrors] = useState({});
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const validate = () => {
     const newErrors = {};
     if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
@@ -23,14 +19,13 @@ export default function Signup() {
       newErrors.password = "Password must be at least 6 characters";
     return newErrors;
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      alert("🎉 Form submitted successfully!");
+      alert("Form submitted successfully!");
       setErrors({});
     }
   };
@@ -44,7 +39,6 @@ export default function Signup() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Decorative circle animation */}
         <motion.div
           className="absolute top-0 -right-16 w-40 h-40 bg-pink-300 rounded-full opacity-30"
           animate={{ scale: [1, 1.2, 1] }}
@@ -59,8 +53,6 @@ export default function Signup() {
         <h2 className="text-3xl font-extrabold text-center mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
           Create Account
         </h2>
-
-        {/* Full Name */}
         <div className="mb-5">
           <label className="block text-sm font-medium text-gray-700">Full Name</label>
           <input
@@ -71,8 +63,6 @@ export default function Signup() {
           />
           {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
         </div>
-
-        {/* Email */}
         <div className="mb-5">
           <label className="block text-sm font-medium text-gray-700">Email Address</label>
           <input
@@ -83,8 +73,6 @@ export default function Signup() {
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
-
-        {/* Password */}
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700">Password</label>
           <input
@@ -95,8 +83,6 @@ export default function Signup() {
           />
           {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
         </div>
-
-        {/* Submit Button */}
         <motion.button
           type="submit"
           className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white p-3 rounded-lg font-semibold hover:opacity-90 transition"
