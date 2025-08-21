@@ -1,7 +1,6 @@
 import React from "react";
 import "../css/components/signup.css";
 import { useNavigate } from "react-router";
-
 export const SignUp = () => {
   const navigate = useNavigate();
 
