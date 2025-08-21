@@ -1,12 +1,32 @@
-// src/pages/Home.jsx
-import UserCard from "../components/UserCard.jsx";
+import { useNavigate } from "react-router";
+import "../css/components/home.css";
 import React from "react";
-export default function Home() {
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <UserCard name="Karan Singh" email="karan@example.com" />
-      <UserCard name="Neha Sharma" email="neha@example.com" />
-      <UserCard name="Rahul Verma" email="rahul@example.com" />
+    <div className="container">
+      <div className="page">
+        <section className="content content-home">
+          <div className="text-container">
+            <h2 className="heading">Welcome to PopX</h2>
+            <p className="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+
+          <div className="button-container">
+            <button onClick={() => navigate("/create-account")}>
+              Create Account
+            </button>
+            <button onClick={() => navigate("/login")}>
+              Already Registered? Login
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
